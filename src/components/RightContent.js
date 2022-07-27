@@ -1,24 +1,6 @@
 const RightContent = () => {
   return (
     <div className="right-area">
-      <button className="btn-close-right">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          className="feather feather-x-circle"
-          viewBox="0 0 24 24"
-        >
-          <defs />
-          <circle cx="12" cy="12" r="10" />
-          <path d="M15 9l-6 6M9 9l6 6" />
-        </svg>
-      </button>
       <div className="right-area-header-wrapper">
         <p className="right-area-header">Downloads</p>
         <button className="more-action"></button>
@@ -50,7 +32,7 @@ const RightContent = () => {
             </svg>
           </div>
           <div className="download-item-texts">
-            <p className="download-text-header">Glitter.mp4</p>
+            <p className="download-text-header">wtf.mp4</p>
             <p className="download-text-info">
               34.45 MB<span>Waiting for download</span>
             </p>
@@ -90,7 +72,7 @@ const RightContent = () => {
             </svg>
           </div>
           <div className="download-item-texts">
-            <p className="download-text-header">Glitter.mp4</p>
+            <p className="download-text-header">allo.mp4</p>
             <div className="progress-bar">
               <span className="progress"></span>
             </div>

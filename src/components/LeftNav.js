@@ -1,36 +1,58 @@
 import "../styles.css";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const LeftNav = () => {
+  const location = useLocation();
+
   useEffect(() => {
     let squares = document.getElementById("squares");
     let folder = document.getElementById("folder");
     let disk = document.getElementById("disk");
     let settings = document.getElementById("settings");
-    squares.addEventListener("click", () =>
-      activated([squares, folder, disk, settings])
-    );
-    folder.addEventListener("click", () =>
-      activated([folder, squares, disk, settings])
-    );
-    disk.addEventListener("click", () =>
-      activated([disk, folder, squares, settings])
-    );
-    settings.addEventListener("click", () =>
-      activated([settings, folder, disk, squares])
-    );
-  }, []);
 
-  function activated(nodes) {
-    nodes[0].attributes[1].value = "item-link-active";
-    nodes[1].attributes[1].value = "item-link";
-    nodes[2].attributes[1].value = "item-link";
-    nodes[3].attributes[1].value = "item-link";
-  }
+    const nodes = [squares, folder, disk, settings];
+
+    switch (location.pathname) {
+      case "/":
+        nodes[0].attributes[1].value = "item-link-active";
+        nodes[1].attributes[1].value = "item-link";
+        nodes[2].attributes[1].value = "item-link";
+        nodes[3].attributes[1].value = "item-link";
+        break;
+
+      case "/folder":
+        nodes[0].attributes[1].value = "item-link";
+        nodes[1].attributes[1].value = "item-link-active";
+        nodes[2].attributes[1].value = "item-link";
+        nodes[3].attributes[1].value = "item-link";
+        break;
+
+      case "/disk":
+        nodes[0].attributes[1].value = "item-link";
+        nodes[1].attributes[1].value = "item-link";
+        nodes[2].attributes[1].value = "item-link-active";
+        nodes[3].attributes[1].value = "item-link";
+        break;
+
+      case "/settings":
+        nodes[0].attributes[1].value = "item-link";
+        nodes[1].attributes[1].value = "item-link";
+        nodes[2].attributes[1].value = "item-link";
+        nodes[3].attributes[1].value = "item-link-active";
+        break;
+      default:
+        nodes[0].attributes[1].value = "item-link-active";
+        nodes[1].attributes[1].value = "item-link";
+        nodes[2].attributes[1].value = "item-link";
+        nodes[3].attributes[1].value = "item-link";
+        break;
+    }
+  }, []);
 
   return (
     <div className="left-area">
-      <div className="app-name">MyDocs</div>
+      <div className="app-name">TrouverNom</div>
       <a href="/" className="item-link-active" id="squares">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +69,7 @@ const LeftNav = () => {
           <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
         </svg>
       </a>
-      <a href="/" className="item-link" id="folder">
+      <a href="/folder" className="item-link" id="folder">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -63,7 +85,7 @@ const LeftNav = () => {
           <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
         </svg>
       </a>
-      <a href="/" className="item-link" id="disk">
+      <a href="/disk" className="item-link" id="disk">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -79,7 +101,7 @@ const LeftNav = () => {
           <path d="M22 12H2M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11zM6 16h.01M10 16h.01" />
         </svg>
       </a>
-      <a href="/" className="item-link" id="settings">
+      <a href="/settings" className="item-link" id="settings">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
